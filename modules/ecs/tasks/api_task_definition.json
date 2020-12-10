@@ -1,0 +1,28 @@
+[
+  {
+    "name": "api",
+    "image": "${image}",
+    "portMappings": [
+      {
+        "containerPort": 3002,
+        "hostPort": 3002
+      }
+    ],
+    "memory": 300,
+    "networkMode": "awsvpc",
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-group": "${log_group}",
+        "awslogs-region": "us-east-1",
+        "awslogs-stream-prefix": "web"
+      }
+    },
+    "environment": [
+      {
+        "name": "NODE_ENV",
+        "value": "production"
+      }
+    ]
+  }
+]
